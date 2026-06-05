@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const outDir = process.cwd();
-const siteUrl = "https://video.jianyangba.com";
+const siteUrl = "https://video.skyba.cn";
 const company = {
   name: "成都天际网络科技有限公司",
   phone: "028-27359595",
@@ -715,6 +715,7 @@ write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>
 ${urls.map((u) => `  <url><loc>${siteUrl}/${u}</loc><changefreq>weekly</changefreq><priority>${u ? "0.8" : "1.0"}</priority></url>`).join("\n")}
 </urlset>
 `);
+write("urls.txt", `${urls.map((u) => `${siteUrl}/${u}`).join("\n")}\n`);
 write("robots.txt", `User-agent: *
 Allow: /
 Sitemap: ${siteUrl}/sitemap.xml
